@@ -6,11 +6,12 @@
 <title>Загрузка — сервер</title>
 
 <style>
-  :root{
-    --accent: #6EE7B7;
-    --accent-2: #60A5FA;
+:root{
+    --accent: #FF4E50;   /* яркий красный */
+    --accent-2: #F9D423; /* золотисто-оранжевый для плавного градиента */
     --bar-height: 6px;
-  }
+}
+
   html,body{
     height:100%;margin:0;
     background:#000;
@@ -33,7 +34,7 @@
   }
   .progress-inner{
     height:var(--bar-height);
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    background: linear-gradient(90deg, #FF4E50, #FF8C42, #F9D423);
     border-radius:999px;
     width:0%;
     transition:width 300ms linear;
@@ -59,5 +60,6 @@
 </script>
 </body>
 </html>
+
 
 
