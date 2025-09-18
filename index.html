@@ -12,7 +12,7 @@
     --bar-height: 6px;
 }
 
-  html,body{
+html,body{
     height:100%;margin:0;
     background:#000;
     display:flex;
@@ -20,37 +20,56 @@
     justify-content:center;
     flex-direction:column;
     font-family: Inter, Roboto, Arial, sans-serif;
-  }
-  .logo{
+    color:#fff;
+}
+
+.logo{
     width:96px;
     height:96px;
     margin-bottom:28px;
-  }
-  .progress-bar{
+}
+
+.progress-bar{
     width:280px;
     background:rgba(255,255,255,0.1);
     border-radius:999px;
     padding:3px;
-  }
-  .progress-inner{
+    margin-bottom:12px; /* расстояние до названия карты */
+}
+
+.progress-inner{
     height:var(--bar-height);
     background: linear-gradient(90deg, #FF4E50, #FF8C42, #F9D423);
     border-radius:999px;
     width:0%;
     transition:width 300ms linear;
-  }
+}
+
+.map-name{
+    font-size:14px;
+    opacity:0.8;
+}
 </style>
 </head>
 <body>
   <img class="logo" src="https://velzts.github.io/eventech/img/logo.png" alt="logo">
+  
   <div class="progress-bar">
     <div id="progress" class="progress-inner"></div>
   </div>
 
+  <div class="map-name" id="mapName">Карта: неизвестно</div>
+
 <script>
 (function(){
   let progressEl = document.getElementById('progress');
+  let mapEl = document.getElementById('mapName');
   let p = 0;
+
+  // Здесь можно поставить динамическое имя карты из GMod Lua
+  let currentMap = "rp_rg_spring_weqcly"; // пример
+  mapEl.textContent = "" + currentMap;
+
   let t = setInterval(()=>{
     p += Math.random()*10;
     if(p>=100){ p=100; clearInterval(t); }
@@ -60,6 +79,3 @@
 </script>
 </body>
 </html>
-
-
-
