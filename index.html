@@ -1,25 +1,3 @@
-<!--
-GMod Responsive Loading Screen
-File: gmod_loading_screen.html
-Instructions:
-1) Put this file and the /assets/ folder into your addon or workshop folder, e.g.
-   garrysmod/addons/my_loading/html/index.html
-   garrysmod/addons/my_loading/html/assets/*
-2) If you use a loading screen addon (Simple Loading Screen, Loading Screen V2, etc.)
-   point it at the HTML file (index.html) or the folder URL.
-3) Replace assets (logo.png, bg.jpg) in /assets/ with your own images.
-4) Customize colors, texts and fonts via the CSS variables below.
-
-Notes on responsiveness:
-- Layout uses CSS variables, vw/vh and flex to scale to any resolution.
-- Safe 'max-width' values and scalable font sizes keep UI readable on very large screens.
-- The progress bar is responsive and will match the host's reported progress if the loading system
-  injects progress updates via JS. By default the demo simulates progress so you can preview it.
-
-If you want me to: change colors, add player list, show server rules, or convert this into a
-Lua VGUI version, tell me which features and provide your logo/background.
--->
-
 <!doctype html>
 <html lang="ru">
 <head>
@@ -146,7 +124,7 @@ Lua VGUI version, tell me which features and provide your logo/background.
       </div>
     </div>
 
-    <div style="text-align:center;color:var(--muted);font-size:0.85rem">Нажмите Esc для отмены подключения | Настроено для всех разрешений</div>
+   // <div style="text-align:center;color:var(--muted);font-size:0.85rem">Нажмите Esc для отмены подключения | Настроено для всех разрешений</div>
   </div>
 
 <script>
@@ -177,7 +155,7 @@ Lua VGUI version, tell me which features and provide your logo/background.
   setInterval(updateTime,1000); updateTime();
 
   // fake players
-  let demoPlayers = ["Leha","Sanya","Nikita","Maks","Ira","Oleg","Vlad"];
+  let demoPlayers = ["lol"];
   function renderPlayers(list){
     playersList.innerHTML = '';
     list.forEach((p,i)=>{
@@ -210,4 +188,5 @@ Lua VGUI version, tell me which features and provide your logo/background.
 </script>
 
 </body>
+
 </html>
