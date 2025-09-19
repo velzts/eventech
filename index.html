@@ -3,80 +3,68 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Загрузка — сервер</title>
+<title>Загрузка сервера</title>
 
 <style>
-:root{
-    --accent: #FF4E50;   /* яркий красный */
-    --accent-2: #F9D423; /* золотисто-оранжевый для плавного градиента */
-    --bar-height: 6px;
-}
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        overflow: hidden;
+    }
 
-html,body{
-    height:100%;margin:0;
-    background:#000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    font-family: Inter, Roboto, Arial, sans-serif;
-    color:#fff;
-}
+    body {
+        background: url("Frame 2147223748.png") no-repeat center center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
 
-.logo{
-    width:96px;
-    height:96px;
-    margin-bottom:28px;
-}
+    .overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.35);
+        z-index: 1;
+    }
 
-.progress-bar{
-    width:280px;
-    background:rgba(255,255,255,0.1);
-    border-radius:999px;
-    padding:3px;
-    margin-bottom:12px; /* расстояние до названия карты */
-}
+    .mapname {
+        position: relative;
+        z-index: 2;
+        font-size: clamp(16px, 2vw, 28px);
+        font-weight: bold;
+        text-shadow: 0 0 12px rgba(0,0,0,0.8);
+        margin-top: 15vh; /* Текст смещен ниже центра */
+        animation: gentle-pulse 4s infinite ease-in-out; /* Более плавная анимация */
+    }
 
-.progress-inner{
-    height:var(--bar-height);
-    background: linear-gradient(90deg, #FF4E50, #FF8C42, #F9D423);
-    border-radius:999px;
-    width:0%;
-    transition:width 300ms linear;
-}
-
-.map-name{
-    font-size:14px;
-    opacity:0.8;
-}
+    @keyframes gentle-pulse {
+        0%, 100% {
+            color: #BCBCBC;
+            opacity: 0.9;
+        }
+        50% {
+            color: #E0E0E0;
+            opacity: 1;
+        }
+    }
 </style>
 </head>
 <body>
-  <img class="logo" src="https://velzts.github.io/eventech/img/logo.png" alt="logo">
-  
-  <div class="progress-bar">
-    <div id="progress" class="progress-inner"></div>
-  </div>
 
-  <div class="map-name" id="mapName">Карта: неизвестно</div>
+<div class="overlay"></div>
+<div class="mapname" id="mapname">Загрузка карты...</div>
 
 <script>
-(function(){
-  let progressEl = document.getElementById('progress');
-  let mapEl = document.getElementById('mapName');
-  let p = 0;
-
-  // Здесь можно поставить динамическое имя карты из GMod Lua
-  let currentMap = "rp_tg_spring_weqcly"; // пример
-  mapEl.textContent = "" + currentMap;
-
-  let t = setInterval(()=>{
-    p += Math.random()*10;
-    if(p>=100){ p=100; clearInterval(t); }
-    progressEl.style.width = p + '%';
-  },300);
-})();
+    function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
+        document.getElementById("mapname").innerText = "Карта: " + mapname;
+    }
 </script>
+
 </body>
 </html>
-
