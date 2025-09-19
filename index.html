@@ -34,25 +34,26 @@
     }
 
     .mapname {
-        position: relative;
-        z-index: 2;
-        font-size: clamp(16px, 2vw, 28px);
-        font-weight: bold;
-        text-shadow: 0 0 12px rgba(0,0,0,0.8);
-        margin-top: 15vh; /* Текст смещен ниже центра */
-        animation: gentle-pulse 4s infinite ease-in-out; /* Более плавная анимация */
-    }
+    position: relative;
+    z-index: 2;
+    font-size: clamp(14px, 1.8vw, 22px); /* Уменьшенный размер текста */
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0,0,0,0.9); /* Более темная тень */
+    margin-top: 15vh;
+    color: #8C8C8C; /* Более темный серый цвет */
+    animation: gentle-pulse 5s infinite ease-in-out; /* Увеличенная длительность анимации */
+}
 
-    @keyframes gentle-pulse {
-        0%, 100% {
-            color: #BCBCBC;
-            opacity: 0.9;
-        }
-        50% {
-            color: #E0E0E0;
-            opacity: 1;
-        }
+@keyframes gentle-pulse {
+    0%, 100% {
+        color: #6E6E6E; /* Темно-серый */
+        opacity: 0.9;
     }
+    50% {
+        color: #9A9A9A; /* Средне-серый */
+        opacity: 1;
+    }
+}
 </style>
 </head>
 <body>
@@ -68,3 +69,4 @@
 
 </body>
 </html>
+
